@@ -6,7 +6,7 @@ import uuid
 
 import dotenv
 
-from livekit.plugins.moss import DocumentInfo, MossClient
+from livekit.plugins.moss import DocumentInfo, Client
 
 # Configure logging with detailed format
 logging.basicConfig(
@@ -30,9 +30,9 @@ async def main() -> None:
         sys.exit(1)
 
     index_name = f"demo-{uuid.uuid4().hex[:8]}"
-    logger.info(f"Initializing MossClient with project_id={project_id[:8]}...")
-    client = MossClient(project_id=project_id, project_key=project_key)
-    logger.info("MossClient initialized successfully")
+    logger.info(f"Initializing Client with project_id={project_id[:8]}...")
+    client = Client(project_id=project_id, project_key=project_key)
+    logger.info("Client initialized successfully")
 
     docs = [
         DocumentInfo(id="doc1", text="Track an order by logging into your account."),

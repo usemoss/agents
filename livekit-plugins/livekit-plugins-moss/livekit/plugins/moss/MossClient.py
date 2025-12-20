@@ -44,12 +44,12 @@ __all__ = [
     "DocumentInfo",
     "GetDocumentsOptions",
     "IndexInfo",
-    "MossClient",
+    "Client",
     "SearchResult",
 ]
 
 
-class MossClient:
+class Client:
     """Async helper around :mod:`inferedge_moss` tailored for LiveKit agents."""
 
     def __init__(
@@ -59,7 +59,7 @@ class MossClient:
     ) -> None:
         if _InferEdgeMossClient is None:
             raise RuntimeError(
-                "inferedge-moss is required to use MossClient. Install it via `pip install inferedge-moss`."
+                "inferedge-moss is required to use Client. Install it via `pip install inferedge-moss`."
             )
 
         self._project_id = project_id or os.environ.get("MOSS_PROJECT_ID")
@@ -184,4 +184,4 @@ class MossClient:
         return result
 
     def __repr__(self) -> str:
-        return "MossClient(project_id=<redacted>)"
+        return "Client(project_id=<redacted>)"

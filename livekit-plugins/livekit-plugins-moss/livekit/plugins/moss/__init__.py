@@ -24,7 +24,7 @@ from .MossClient import (
     DocumentInfo,
     GetDocumentsOptions,
     IndexInfo,
-    MossClient,
+    Client,
     SearchResult,
 )
 from .version import __version__
@@ -34,7 +34,7 @@ __all__ = [
     "DocumentInfo",
     "GetDocumentsOptions",
     "IndexInfo",
-    "MossClient",
+    "Client",
     "SearchResult",
     "__version__",
 ]
