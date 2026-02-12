@@ -9,7 +9,7 @@ if TYPE_CHECKING:
         DocumentInfo,
         GetDocumentsOptions,
         IndexInfo,
-        MossClient as _InferEdgeMossClient,
+        MossClient as Client,
         QueryOptions,
         SearchResult,
     )
@@ -20,12 +20,12 @@ else:
             DocumentInfo,
             GetDocumentsOptions,
             IndexInfo,
-            MossClient as _InferEdgeMossClient,
+            MossClient as Client,
             QueryOptions,
             SearchResult,
         )
     except ImportError:
-        _InferEdgeMossClient = None  # type: ignore[misc, assignment]
+        Client = None  # type: ignore[misc, assignment]
 
         class _MissingDependency:
             def __init__(self, *_: Any, **__: Any) -> None:
@@ -73,9 +73,9 @@ class MossClient:
         project_id: str | None = None,
         project_key: str | None = None,
     ) -> None:
-        if _InferEdgeMossClient is None:
+        if Client is None:
             raise RuntimeError(
-                "inferedge-moss is required to use MossClient. Install it via `pip install inferedge-moss`."
+                "moss is required to use MossClient. Install it via `pip install inferedge-moss`."
             )
 
         project_id_value = project_id or os.environ.get("MOSS_PROJECT_ID")
@@ -93,7 +93,7 @@ class MossClient:
 
         self._project_id: str = project_id_value
         self._project_key: str = project_key_value
-        self._client = _InferEdgeMossClient(self._project_id, self._project_key)
+        self._client = Client(self._project_id, self._project_key)
 
     @property
     def project_id(self) -> str:
