@@ -28,11 +28,11 @@ export MOSS_PROJECT_KEY="your-project-key"
 
 ```python
 import asyncio
-from livekit.plugins.moss import DocumentInfo, MossClient
+from livekit.plugins.moss import DocumentInfo, Client
 
 
 async def main() -> None:
-    client = MossClient()
+    client = Client()
     await client.create_index(
         "demo",
         [DocumentInfo(id="doc1", text="Semantic search is fast")],
@@ -46,10 +46,10 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
-See ``examples/dev/MossLifecycle.py`` for a full lifecycle demonstration.
+See ``examples/MossLifecycle.py`` for a full lifecycle demonstration.
 
 ```bash
-# change into the examples/dev folder and run the demo
-cd examples/dev
+# change into the examples folder and run the demo
+cd examples
 python MossLifecycle.py
 ```
