@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from inferedge_moss import (
@@ -75,7 +75,7 @@ class MossClient:
     ) -> None:
         if Client is None:
             raise RuntimeError(
-                 "inferedge-moss is required to use MossClient. Install it via `pip install inferedge-moss`."
+                "inferedge-moss is required to use MossClient. Install it via `pip install inferedge-moss`."
             )
 
         project_id_value = project_id or os.environ.get("MOSS_PROJECT_ID")
