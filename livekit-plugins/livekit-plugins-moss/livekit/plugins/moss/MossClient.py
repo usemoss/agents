@@ -75,7 +75,7 @@ class MossClient:
     ) -> None:
         if Client is None:
             raise RuntimeError(
-                "moss is required to use MossClient. Install it via `pip install inferedge-moss`."
+                 "inferedge-moss is required to use MossClient. Install it via `pip install inferedge-moss`."
             )
 
         project_id_value = project_id or os.environ.get("MOSS_PROJECT_ID")
